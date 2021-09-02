@@ -1,26 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset=UTF-8>
-  <meta name=viewport content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin=anonymous>
-  <title>Admin Dashboard</title>
-</head>
-<body>
-    <div >
-      <div >
-        <div ></div>
-        <div >
-          <div >
-            <div >
-              <h1>Welcome To Admin Dashboard</h1>
-            </div>
-          </div>
-          <a href="/admin/logout">Logout</a>
-        </div>
-        <div ></div>
-      </div>
-    </div>
-</body>
-</html>
+
+
+@extends('management.owner.layouts.owner_layouts')
+
+@section('admin_content')
+
+
+@include('management.owner.layouts.includes.headpanel')
+@include('management.owner.layouts.includes.leftpanel')
+@include('management.owner.layouts.includes.rightpanel')
+
+
+
+  <!-- ########## START: MAIN PANEL ########## -->
+    <div class="sl-mainpanel">
+      <nav class="breadcrumb sl-breadcrumb">
+        <a class="breadcrumb-item" href="index.html">Starlight</a>
+        <span class="breadcrumb-item active">Dashboard</span>
+      </nav>
+
+      <div class="sl-pagebody">
+
+        <div class="row row-sm">
+          <div class="col-sm-6 col-xl-3">
+            <div class="card pd-20 bg-primary">
+              <div class="d-flex justify-content-between align-items-center mg-b-10">
+                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Today's Orders</h6>
+                <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+              </div><!-- card-header -->
+              <div class="d-flex align-items-center justify-content-between">
+                <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
+                <h3 class="mg-b-0 tx-white tx-lato tx-bold">$ </h3>
+              </div><!-- card-body -->
+
+
+            </div><!-- card -->
+          </div><!-- col-3 -->
+          <div class="col-sm-6 col-xl-3 mg-t-20 mg-sm-t-0">
+            <div class="card pd-20 bg-info">
+              <div class="d-flex justify-content-between align-items-center mg-b-10">
+                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">This Month's Sales</h6>
+                <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+              </div><!-- card-header -->
+              <div class="d-flex align-items-center justify-content-between">
+                <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
+                <h3 class="mg-b-0 tx-white tx-lato tx-bold">$ </h3>
+              </div><!-- card-body -->
+
+            </div><!-- card -->
+          </div><!-- col-3 -->
+          <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+            <div class="card pd-20 bg-purple">
+              <div class="d-flex justify-content-between align-items-center mg-b-10">
+                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">This Year's Sales</h6>
+                <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+              </div><!-- card-header -->
+              <div class="d-flex align-items-center justify-content-between">
+                <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
+                <h3 class="mg-b-0 tx-white tx-lato tx-bold">$ </h3>
+              </div><!-- card-body -->
+
+
+            </div><!-- card -->
+          </div><!-- col-3 -->
+          <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+            <div class="card pd-20 bg-sl-primary">
+              <div class="d-flex justify-content-between align-items-center mg-b-10">
+                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Today Delivered</h6>
+                <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+              </div><!-- card-header -->
+              <div class="d-flex align-items-center justify-content-between">
+                <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
+                <h3 class="mg-b-0 tx-white tx-lato tx-bold">$  </h3>
+              </div><!-- card-body -->
+
+            </div><!-- card -->
+          </div><!-- col-3 -->
+        </div><!-- row -->
+
+        <br><br>
+
+
+
+  <div class="row row-sm">
+          <div class="col-sm-6 col-xl-3">
+            <div class="card pd-20 bg-danger">
+              <div class="d-flex justify-content-between align-items-center mg-b-10">
+                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Total Return</h6>
+                <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+              </div><!-- card-header -->
+              <div class="d-flex align-items-center justify-content-between">
+                <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
+                <h3 class="mg-b-0 tx-white tx-lato tx-bold">$ </h3>
+              </div><!-- card-body -->
+
+
+            </div><!-- card -->
+          </div><!-- col-3 -->
+          <div class="col-sm-6 col-xl-3 mg-t-20 mg-sm-t-0">
+            <div class="card pd-20 bg-info">
+              <div class="d-flex justify-content-between align-items-center mg-b-10">
+                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Total Product</h6>
+                <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+              </div><!-- card-header -->
+              <div class="d-flex align-items-center justify-content-between">
+                <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
+                <h3 class="mg-b-0 tx-white tx-lato tx-bold">  </h3>
+              </div><!-- card-body -->
+
+            </div><!-- card -->
+          </div><!-- col-3 -->
+          <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+            <div class="card pd-20 bg-purple">
+              <div class="d-flex justify-content-between align-items-center mg-b-10">
+                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Total Brand</h6>
+                <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+              </div><!-- card-header -->
+              <div class="d-flex align-items-center justify-content-between">
+                <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
+                <h3 class="mg-b-0 tx-white tx-lato tx-bold">  </h3>
+              </div><!-- card-body -->
+
+
+            </div><!-- card -->
+          </div><!-- col-3 -->
+          <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+            <div class="card pd-20 bg-sl-primary">
+              <div class="d-flex justify-content-between align-items-center mg-b-10">
+                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Total User</h6>
+                <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+              </div><!-- card-header -->
+              <div class="d-flex align-items-center justify-content-between">
+                <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
+                <h3 class="mg-b-0 tx-white tx-lato tx-bold">   </h3>
+              </div><!-- card-body -->
+
+            </div><!-- card -->
+          </div><!-- col-3 -->
+        </div><!-- row -->
+
+
+
+
+
+    </div><!-- sl-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+@endsection
