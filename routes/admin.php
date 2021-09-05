@@ -22,6 +22,8 @@ Route::prefix('admin')->group(function() {
 
      //Dealers information
      Route::get('dealers_list', 'Management\Owner\Dealers_info\DealerCompanyController@index')->name('admin.dealers.list');
+     Route::get('new_dealer_company_form', 'Management\Owner\Dealers_info\DealerCompanyController@addDealerCompany')->name('add_dealer_company');
+     Route::post('store-dealer-company', 'Management\Owner\Dealers_info\DealerCompanyController@storeDealerCompany')->name('store.dealer.company');
     //---------------------
 
 
