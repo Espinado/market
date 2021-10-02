@@ -16,8 +16,11 @@ class CreateDealerUsersTable extends Migration
         Schema::create('dealer_users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('surname');
             $table->string('email')->unique();
-           	$table->string('password');
+            $table->string('password');
+            $table->boolean('is_active')->default(true);
+            $table->boolean('is_banned')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

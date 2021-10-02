@@ -34,14 +34,14 @@ return [
                 0 => [
                     'city_name' => 'Riga',
                     'streets' => [
-                        'Stabu',
-                        'Brivibas',
-                        'Valdemara'
+                        0 => 'Stabu',
+                        1 => 'Brivibas',
+                        2 => 'Valdemara'
                     ],
                     'post_codes' => [
-                        '1009',
-                        '1010',
-                        '1015'
+                        0 =>  '1009',
+                        1 =>  '1010',
+                        2 => '1015'
                     ],
                 ],
 
@@ -150,6 +150,58 @@ return [
                         '2009',
                         '2010',
                         '2015'
+                    ],
+                ],
+            ],
+        ],
+        2 => [
+            'country_name' => 'Lietuva',
+            'status' => true,
+            'country_code' => 'LT',
+            'currency' => 'EUR',
+            'post_index' => 'LT',
+            'regions' => [
+
+
+                0 => [
+                    'city_name' => 'Vilnius',
+                    'streets' => [
+                        'Vilnius 1',
+                        'Vilnius 2',
+                        'Vilnius 3'
+                    ],
+                    'post_codes' => [
+                        '2009LT',
+                        '2010LT',
+                        '2015LT'
+                    ],
+                ],
+
+                1 => [
+                    'city_name' => 'Kaunas',
+                    'streets' => [
+                        'Kaunas 1',
+                        'Kaunas 2',
+                        'Kaunas 3'
+                    ],
+                    'post_codes' => [
+                        '3009LT',
+                        '3010LT',
+                        '3015LT'
+                    ],
+                ],
+
+                2 => [
+                    'city_name' => 'Klaipeda',
+                    'streets' => [
+                        'Klaipeda 1',
+                        'Klaipeda 2',
+                        'Klaipeda 3'
+                    ],
+                    'post_codes' => [
+                        '2009LT',
+                        '2010LT',
+                        '2015LT'
                     ],
                 ],
             ],

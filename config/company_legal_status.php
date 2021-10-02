@@ -41,5 +41,13 @@ return [
                 'A/S EE',
             ],
         ],
+        2 => [
+            'country_code' => 'LT',
+            'status' => [
+                 'IK LT',
+                'SIA LT',
+                'A/S LT',
+            ],
+        ],
     ],
 ];

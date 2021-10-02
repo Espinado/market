@@ -15,7 +15,7 @@ class DealerUser extends  Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'surname','email', 'password','is_active', 'is_banned'
     ];
 
     /**

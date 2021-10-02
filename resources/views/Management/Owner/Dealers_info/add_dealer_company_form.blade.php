@@ -139,7 +139,7 @@ var city_array_code=$('#company_city').val();
               <div class="form-group">
                 <label class="form-control-label">Registration number: <span class="tx-danger">*</span></label>
                 <div class="d-md-flex pd-y-20 pd-md-y-0">
-                <input class="col-lg-2" type="text" id="reg_country_code"  disabled>
+                <input class="col-lg-2" type="text" id="reg_country_code" name="reg_country_code_prefix" disabled>
                <input class="form-control" type="text" id="company_reg_number" name="company_reg_number" placeholder="Enter registration number" required>
                 </div>
               </div>
@@ -159,7 +159,7 @@ var city_array_code=$('#company_city').val();
       </div><!-- card -->
 
       <div class="card pd-20 pd-sm-40 mg-t-50">
-        <h6 class="card-body-title">Company information</h6>
+        <h6 class="card-body-title">Company Legal information</h6>
         <p class="mg-b-20 mg-sm-b-30">A form with a label on top of each form control.</p>
 
         <div class="row">
@@ -170,33 +170,48 @@ var city_array_code=$('#company_city').val();
                   <input class="form-control" type="text" name="company_reg_country" id="company_reg_country" disabled value="No country selected">
                 </div>
               </div><!-- col-3-->
+              <div class="col-lg-2">
+           <label class="form-control-label">Company Admin person: <span class="tx-danger">*</span></label>
+           <input class="form-control" type="text" name="company_admin_person" placeholder="Enter admin person" required>
+            </div><!-- col-3 -->
+            </div><!-- row -->
 
-              <div class="col-lg-3">
-           <label class="form-control-label">Company City: <span class="tx-danger">*</span></label>
+            <div class="row">
+              <div class="col-lg-2">
+           <label class="form-control-label">Company Legal City: <span class="tx-danger">*</span></label>
 
 
-           <select class="form-control select2" data-placeholder="Choose city" name="company_city" id="company_city" required>
+           <select class="form-control select2" data-placeholder="Choose city" name="company_legal_city" id="company_city" required>
                     <option label="No country selected"></option>
            </select>
 
            </div><!-- col-3 -->
-           <div class="col-lg-3">
-           <label class="form-control-label">Company street: <span class="tx-danger">*</span></label>
-           <select class="form-control select2" data-placeholder="Choose city" name="company_street" id="company_street" required>
+           <div class="col-lg-2">
+           <label class="form-control-label">Company Legal street: <span class="tx-danger">*</span></label>
+           <select class="form-control select2" data-placeholder="Choose city" name="company_legal_street" id="company_street" required>
                     <option label="No city selected"></option>
            </select>
             </div><!-- col-3 -->
+            <div class="col-lg-2">
+           <label class="form-control-label">Company Legal house: <span class="tx-danger">*</span></label>
+           <input class="form-control" type="text" name="company_legal_house" placeholder="Enter house" required>
+            </div><!-- col-3 -->
+            <div class="col-lg-2">
+           <label class="form-control-label">Company Legal room: <span class="tx-danger">*</span></label>
+           <input class="form-control" type="text" name="company_legal_room" placeholder="Enter room" required>
+            </div><!-- col-3 -->
             <div class="col-lg-3">
-           <label class="form-control-label">Company post code: <span class="tx-danger">*</span></label>
+           <label class="form-control-label">Company legal post code: <span class="tx-danger">*</span></label>
            <div class="d-md-flex pd-y-20 pd-md-y-0">
-                <input class="col-lg-2" type="text" id="post_country_code"  disabled>
-           <select class="form-control select2" data-placeholder="Choose index" name="company_post_code" id="company_post_code" required>
+                <input class="col-lg-2" type="text" id="post_country_code" name="post_country_code_prefix"  disabled>
+           <select class="form-control select2" data-placeholder="Choose index" name="company_legal_post_code" id="company_post_code" required>
                     <option label="No city selected"></option>
            </select>
            </div>
             </div><!-- col-3 -->
-
         </div><!-- row -->
+
+
 
       </div><!-- card -->
 

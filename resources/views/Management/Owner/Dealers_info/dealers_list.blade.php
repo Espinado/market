@@ -27,21 +27,45 @@
                         <tr>
                             <th class="wd-15p" >Company name</th>
                             <th class="wd-15p">Reg. number</th>
-                             <th class="wd-20p">Tax payer status</th>
-                             <th class="wd-15p">Status</th>
+                            <th class="wd-15p">Address</th>
+                             <th class="wd-20p">Is active</th>
+                             <th class="wd-15p">Is banned</th>
+                             <th class="wd-15p">Details</th>
 
                         </tr>
                     </thead>
                     <tbody>
 
-                            <tr>
-                                <td>
-                                    1
 
+
+                                @foreach ($dealerCompanies as $company)
+                                <tr>
+                                {{-- @dd($company->company_street) --}}
+                                {{-- @dd(Config::get('countries.name.'.$company->company_country.'.regions.'.$company->company_city.'.streets.'.$company->company_street)) --}}
+                                <td>{{$company->company_name}}</td>
+                                <td>{{$company->company_reg_number}}</td>
+                                <td>{{Config::get('countries.name.'.$company->company_country.'.country_name')}},
+                              {{Config::get('countries.name.'.$company->company_country.'.regions.'.$company->company_city.'.city_name')}},<br>
+                              {{Config::get('countries.name.'.$company->company_country.'.regions.'.$company->company_city.'.streets.'.$company->company_street)}},<br>
+                              {{Config::get('countries.name.'.$company->company_country.'.country_code')}}-
+                              {{Config::get('countries.name.'.$company->company_country.'.regions.'.$company->company_city.'.post_codes.'.$company->company_street)}}
+                                </td>
+                                <td>
+                                    @if ($company->is_active  ==true)
+                                    <span class="badge badge-success">Active</span>
+                                     @else
+                                        <span class="badge badge-danger">Inactive</span>
+                                    @endif
                                      </td>
-                                     <td>1</td>
-                                     <td>1</td>
-                                     <td></td>
+                                <td>
+                                    @if ($company->is_banned  ==true)
+                                    <span class="badge badge-danger">Banned</span>
+                                     @else
+                                        <span class="badge badge-success">Not available</span>
+                                    @endif</td>
+                                <td><button class="btn btn-outline-primary active">Information</button></td>
+                            </tr>
+                                @endforeach
 
                                 {{--  <td>  --}}
                                     {{--  <a href="{{ url('admin/edit/category/' . $row->id) }} "
@@ -49,7 +73,7 @@
                                     <a href="{{ url('admin/delete/category/' . $row->id) }}"
                                         class="btn btn-sm btn-danger" id="delete">Delete</a>  --}}
                                 {{--  </td>  --}}
-                            </tr>
+
 
 
                     </tbody>
