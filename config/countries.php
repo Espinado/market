@@ -1,28 +1,11 @@
 <?php
 return [
-    /*
-     * Show language selector
-     *
-     * @var bool
-     */
+
+    
     'status' => true,
 
-    /*
-     * Available languages
-     *
-     * Add the language code to the following array
-     * The code must have the same name as in the languages folder
-     * Make sure they're in alphabetical order.
-     *
-     * @var array
-     */
 
     'name' => [
-        /*
-         * Key is the Laravel country
-         * Index 0 of sub-array country regions
-
-         */
 
         0 => [
             'country_name' => 'Latvia',
@@ -48,14 +31,14 @@ return [
                 1 => [
                     'city_name' => 'Jurmala',
                     'streets' => [
-                        'Skolas',
-                        'Raina',
-                        'Talsu'
+                        0 => 'Skolas',
+                        1 => 'Raina',
+                        2 => 'Talsu'
                     ],
                     'post_codes' => [
-                        '2009',
-                        '2010',
-                        '2015'
+                        0 => '2009',
+                        1 => '2010',
+                        2 => '2015'
                     ],
                 ],
 

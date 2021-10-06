@@ -30,19 +30,22 @@ class DealerCompanyController extends Controller
 
     public function storeDealerCompany(request $request)
     {
-        $validateData = $request->validate([
-            'company_country'           => 'required',
-            'company_status'            => 'required',
-            'company_name'              => 'required|max:20;unique:DealerCompany',
-            'company_reg_number'        => 'required|max:20;unique:DealerCompany',
-            'company_legal_city'        => 'required',
-            'company_legal_street'      => 'required',
-            'company_legal_house'       => 'required',
-            'company_legal_room'        => 'required',
-            'company_legal_post_code'   => 'required'
-        ]);
+        // dd($request->all());
+        // $validateData = $request->validate([
+        //     'company_country'                   => 'required',
+        //     'company_status'                    => 'required',
+        //     'company_name'                      => 'required|max:20;unique:DealerCompany',
+        //     'company_reg_number'                => 'required|max:20;unique:DealerCompany',
+        //     'company_legal_city'                => 'required',
+        //     'company_legal_street'              => 'required',
+        //     'company_legal_house'               => 'required',
+        //     'company_legal_room'                => 'required',
+        //     'company_legal_post_code'           => 'required',
+        //     'dealer_company_admin_name'         => 'required',
+        //     'dealer_company_admin_surname'      => 'required',
+        //     'dealer_company_admin_email'        => 'required',
+        // ]);
         $dealerCompany = new DealerCompany();
-
         $dealerCompany->dealer_company_status = $request->company_status;
         $dealerCompany->dealer_company_name = $request->company_name;
         $dealerCompany->save();
@@ -61,11 +64,21 @@ class DealerCompanyController extends Controller
             'dealer_company_phys_street'            => $request->company_legal_street,
             'dealer_company_phys_house'             => $request->company_legal_house,
             'dealer_company_phys_room'              => $request->company_legal_room,
-            'dealer_company_phys_post_code'         => $request->company_post_code,
-            'dealer_company_admin_person'           => $request->company_admin_person,
-            // 'company_logo'
+            'dealer_company_phys_post_code'         => $request->company_legal_post_code,
+
+        ]);
+        $user = $dealerCompany->dealer_company_users()->create([
+            'name'         => $request->company_admin_person_name,
+            'surname'      => $request->company_admin_person_surname,
+            'email'        => $request->company_admin_person_email,
         ]);
 
+        $user->dealer_company_user_profile()->create([
+            'name'         => $request->company_admin_person_name,
+            'surname'      => $request->company_admin_person_surname,
+            'email'        => $request->company_admin_person_email,
+            'phone'        => '1234567',
+        ]);
         $notification = array(
             'messege' => 'Done',
             'alert-type' => 'success'

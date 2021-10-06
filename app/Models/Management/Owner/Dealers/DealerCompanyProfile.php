@@ -24,7 +24,7 @@ class DealerCompanyProfile extends Model
 'dealer_company_phys_room',
 'dealer_company_phys_post_code',
 'dealer_company_admin_person',
-'company_logo'
+'company_logo',
     ];
 
     public function dealer_company() {

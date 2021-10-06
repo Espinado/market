@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDealerUsersTable extends Migration
+class CreateDealerCompanyUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateDealerUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('dealer_users', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('dealer_company_users', function (Blueprint $table) {
+            $table->id();
+            $table->string('uuid');
             $table->string('name');
             $table->string('surname');
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('is_active')->default(true);
-            $table->boolean('is_banned')->default(false);
-            $table->rememberToken();
+            $table->bigInteger('dealer_company_id')->unsigned();
+            $table->foreign('dealer_company_id')->references('id')->on('dealer_companies')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ class CreateDealerUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dealer_users');
+        Schema::dropIfExists('dealer_company_users');
     }
 }

@@ -6,6 +6,7 @@
 @include('management.owner.layouts.includes.headpanel')
 @include('management.owner.layouts.includes.leftpanel')
 @include('management.owner.layouts.includes.rightpanel')
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 
 
@@ -26,8 +27,8 @@
                     <thead>
                         <tr>
                             <th class="wd-15p" >Company name</th>
-                            <th class="wd-15p">Reg. number</th>
-                            <th class="wd-15p">Address</th>
+                            <th class="wd-15p">Legal Status</th>
+                            <th class="wd-15p">Country</th>
                              <th class="wd-20p">Is active</th>
                              <th class="wd-15p">Is banned</th>
                              <th class="wd-15p">Details</th>
@@ -35,26 +36,16 @@
                         </tr>
                     </thead>
                     <tbody>
-
-
-
                                 @foreach ($dealerCompanies as $company)
                                 <tr>
-                                {{-- @dd($company->company_street) --}}
-                                {{-- @dd(Config::get('countries.name.'.$company->company_country.'.regions.'.$company->company_city.'.streets.'.$company->company_street)) --}}
-                                <td>{{$company->company_name}}</td>
-                                <td>{{$company->company_reg_number}}</td>
-                                <td>{{Config::get('countries.name.'.$company->company_country.'.country_name')}},
-                              {{Config::get('countries.name.'.$company->company_country.'.regions.'.$company->company_city.'.city_name')}},<br>
-                              {{Config::get('countries.name.'.$company->company_country.'.regions.'.$company->company_city.'.streets.'.$company->company_street)}},<br>
-                              {{Config::get('countries.name.'.$company->company_country.'.country_code')}}-
-                              {{Config::get('countries.name.'.$company->company_country.'.regions.'.$company->company_city.'.post_codes.'.$company->company_street)}}
-                                </td>
-                                <td>
+                                <td>{{$company->dealer_company_name}}</td>
+                                <td>{{Config::get('company_legal_status.legal_status.'.$company->dealer_company_profile->dealer_company_legal_country.'.status.'.$company->dealer_company_status)}}</td>
+                                <td>{{Config::get('countries.name.'.$company->dealer_company_profile->dealer_company_legal_country.'.country_name')}}
+                                                              <td>
                                     @if ($company->is_active  ==true)
-                                    <span class="badge badge-success">Active</span>
+                                    <button class="badge badge-success" id="active">Active</button>
                                      @else
-                                        <span class="badge badge-danger">Inactive</span>
+                                        <button class="badge badge-danger">Inactive</button>
                                     @endif
                                      </td>
                                 <td>
@@ -104,5 +95,13 @@
           </div>
         </div><!-- modal-dialog -->
       </div><!-- modal -->
+      <script type="text/javascript">
+        $(document).ready(function(){
+$('#active').on('click', function() {
+    alert('a');
+})
+        });
 
+
+    </script>
 @endsection

@@ -22,7 +22,11 @@ class DealerCompany extends Model
     ];
 
     public function dealer_company_profile() {
-        
+
        return $this->hasOne(DealerCompanyProfile::class);
     }
+    public function dealer_company_users() {
+
+        return $this->hasMany(DealerCompanyUser::class);
+     }
 }

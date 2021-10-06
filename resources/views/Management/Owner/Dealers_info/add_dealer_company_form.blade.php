@@ -171,8 +171,20 @@ var city_array_code=$('#company_city').val();
                 </div>
               </div><!-- col-3-->
               <div class="col-lg-2">
-           <label class="form-control-label">Company Admin person: <span class="tx-danger">*</span></label>
-           <input class="form-control" type="text" name="company_admin_person" placeholder="Enter admin person" required>
+
+           </div>
+           <div class="col-lg-2">
+            <label class="form-control-label">Company Admin name: <span class="tx-danger">*</span></label>
+           <input class="form-control" type="text" name="company_admin_person_name" placeholder="Enter admin name" required>
+           </div>
+           <div class="col-lg-2">
+            <label class="form-control-label">Company Admin surname: <span class="tx-danger">*</span></label>
+           <input class="form-control" type="text" name="company_admin_person_surname" placeholder="Enter admin surname" required>
+           </div>
+           <div class="col-lg-2">
+            <label class="form-control-label">Company Admin email: <span class="tx-danger">*</span></label>
+           <input class="form-control" type="email" name="company_admin_person_email" placeholder="Enter admin email" required>
+           </div>
             </div><!-- col-3 -->
             </div><!-- row -->
 
