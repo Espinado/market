@@ -5,9 +5,9 @@
 @section('admin_content')
 
 
-@include('management.owner.layouts.includes.headpanel')
-@include('management.owner.layouts.includes.leftpanel')
-@include('management.owner.layouts.includes.rightpanel')
+ @include('management.owner.layouts.includes.headpanel')
+ @include('management.owner.layouts.includes.leftpanel')
+ @include('management.owner.layouts.includes.rightpanel')
 
 
 

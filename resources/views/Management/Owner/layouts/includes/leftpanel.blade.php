@@ -1,4 +1,6 @@
-<div class="sl-logo"><a href=""><i class="icon ion-android-star-outline"></i> 1. parks</a></div>
+
+
+<div class="sl-logo"><a href="{{url('/admin')}}"><i class="icon ion-android-star-outline"></i> 1. parks</a></div>
     <div class="sl-sideleft">
 
 
@@ -29,12 +31,12 @@
                   </div><!-- menu-item -->
                 </a><!-- sl-menu-link -->
             </div>
- --}}
+
 
 
 
                     </a><!-- sl-menu-link -->
-                    {{-- <div class="sl-sideleft-menu">
+                    <div class="sl-sideleft-menu">
                     <a href="#" class="sl-menu-link">
                         <div class="sl-menu-item">
                           <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
@@ -296,7 +298,7 @@
      @else
      @endif
 
-
+ --}}
 
       </div><!-- sl-sideleft-menu -->
 
