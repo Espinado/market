@@ -1,3 +1,5 @@
+
+
 <div class="sl-logo"><a href="{{url('/admin')}}"><i class="icon ion-android-star-outline"></i> 1. parks</a></div>
     <div class="sl-sideleft">
 

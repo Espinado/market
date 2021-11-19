@@ -10,6 +10,11 @@ use App\Models\Management\Owner\Dealers\DealerCompany;
 use Config;
 use Illuminate\Support\Facades\DB;
 
+use App\Mail\Owner\Dealer_companies\InviteCreated;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use App\Models\Management\Owner\Dealers\InviteDealerUser as Invite;
+
 class DealerCompanyController extends Controller
 {
 
@@ -95,4 +100,29 @@ class DealerCompanyController extends Controller
             ->first();
             return view('management.owner.dealers_info.dealer_company_info', compact('dealerCompany'));
     }
+
+    public function storeDealerUser(request $request)
+    {
+        do {
+            //сгенерируем рандомную строку при помощи функции помощника Laravel  `str_random`
+            $token = Str::random(12);
+        } // Проверим, нет ли уже такого токена, если есть сгенерим заново
+        while (Invite::where('token', $token)->first());
+        //создадим запись приглашения
+        $invite = Invite::create([
+            'email' => $request->get('email'),
+            'token' => $token
+        ]);
+        $name=$request->name;
+        $surname=$request->surname;
+
+        // Отправим инвайт
+        Mail::to($request->get('email'))->send(new InviteCreated($invite, $name, $surname));
+
+        // сделаем редирект обратно
+        return redirect()
+            ->back();
+
+    }
+
 }

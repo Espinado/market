@@ -15,6 +15,8 @@ class CreateInviteDealerUsersTable extends Migration
     {
         Schema::create('invite_dealer_users', function (Blueprint $table) {
             $table->id();
+            $table->string('token');
+            $table->string('email');
             $table->timestamps();
         });
     }

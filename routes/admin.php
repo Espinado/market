@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::prefix('admin')->group(function() {
-    Route::get('/login','Management\Owner\Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::prefix('admin')->group(function () {
+    Route::get('/login', 'Management\Owner\Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Management\Owner\Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('logout/', 'Management\Owner\Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/', 'Management\Owner\Auth\AdminController@index')->name('admin.dashboard');
@@ -20,18 +20,23 @@ Route::prefix('admin')->group(function() {
 
     //----------------------
 
-     //Dealers information
-     Route::get('dealers_list', 'Management\Owner\Dealers_info\DealerCompanyController@index')->name('admin.dealers.list');
-     Route::get('new_dealer_company_form', 'Management\Owner\Dealers_info\DealerCompanyController@addDealerCompany')->name('add_dealer.company');
-     Route::post('store-dealer-company', 'Management\Owner\Dealers_info\DealerCompanyController@storeDealerCompany')->name('store.dealer.company');
-     Route::get('dealer/company/profile/{uuid}', 'Management\Owner\Dealers_info\DealerCompanyController@DealerCompanyProfile')->name('dealer.company.profile');
+    //Dealers information
+    Route::get('dealers_list', 'Management\Owner\Dealers_info\DealerCompanyController@index')->name('admin.dealers.list');
+    Route::get('new_dealer_company_form', 'Management\Owner\Dealers_info\DealerCompanyController@addDealerCompany')->name('add_dealer.company');
+    Route::post('store-dealer-company', 'Management\Owner\Dealers_info\DealerCompanyController@storeDealerCompany')->name('store.dealer.company');
+    Route::post('store-dealer-user', 'Management\Owner\Dealers_info\DealerCompanyController@storeDealerUser')->name('store.dealer.user');
+    Route::get('dealer/company/profile/{uuid}', 'Management\Owner\Dealers_info\DealerCompanyController@DealerCompanyProfile')->name('dealer.company.profile');
 
-     //Dealer user invitation system
+    //Dealer user invitation system
 
-     Route::get('generate/invite','Management\Owner\Dealers_info\DealerUserInviteController@create');
+
+
+    Route::post('invite', 'Management\Owner\Dealers_info\DealerUserInviteController@process')->name('invite');
+    // {token}  обязательный параметр, который будет передан в метод контроллера
+    Route::get('accept/{token}/{name}/{surname}', 'Management\Owner\Dealers_info\DealerUserInviteController@accept')->name('accept');
     //---------------------
 
 
-       // Categoies
+    // Categoies
 
-   }) ;
+});

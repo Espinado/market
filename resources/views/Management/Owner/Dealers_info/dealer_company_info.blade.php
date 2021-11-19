@@ -64,7 +64,9 @@
 
           <div class="card pd-20 pd-sm-40">
 
-
+            <h6 class="card-body-title">Dealer List
+                <a href="" class="btn btn-sm btn-warning passingID" data-toggle="modal" data-target="#exampleModal" style="float: right;">Add New</a>
+            </h6>
             <div class="table-wrapper">
               <table id="datatable1" class="table display responsive nowrap">
                 <thead>
@@ -98,12 +100,12 @@
                      <td>{{$user->photo}}</td>
                      <td>{{$user->contract}}</td>
                      <td>{{$user->birthday}}</td>
-                     <td> @if ($dealerCompany->is_active  ==true)
+                     <td> @if ($user->is_active  ==true)
                         <button class="badge badge-success">Active</button>
                          @else
                             <button class="badge badge-danger">Not available</button>
                         @endif</td>
-                     <td>@if ($dealerCompany->is_banned  ==true)
+                     <td>@if ($user->is_banned  ==true)
                         <button class="badge badge-danger">Banned</button>
                          @else
                          <button class="badge badge-info">Not available</button>
@@ -118,6 +120,35 @@
 
 
 
+
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content bd-0">
+                    <div class="modal-header pd-y-20 pd-x-25">
+                      <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Invite new user</h6>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body pd-25">
+                      <h4 class="lh-4 mg-b-20 tx-inverse">Enter user information</h4>
+                      <form method="post" action="{{ route('store.dealer.user') }}" enctype="multipart/form-data">
+                        @csrf
+                      <label for="name">Name</label>
+                      <input class="form-control" placeholder="Name" type="text" id="name" name="name" required>
+                      <label for="surname">Surname</label>
+                      <input class="form-control" placeholder="Surname" type="text" id="surname" name="surname" required>
+                      <label for="email">Email</label>
+                      <input class="form-control" placeholder="Email" type="email" id="email" name="email" required>
+                    </div>
+                    <input type="hidden" name="dealer_company_id" value="{{$dealerCompany->id}}">
+                    <div class="modal-footer">
+                      <input type="submit" class="btn btn-success pd-x-20" value="Invite">
+                      <button type="button" class="btn btn-danger pd-x-20" data-dismiss="modal">Close</button>
+                    </form>
+                    </div>
+                  </div>
 
 
 
