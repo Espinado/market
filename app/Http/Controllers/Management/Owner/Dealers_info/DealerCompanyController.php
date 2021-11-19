@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use PragmaRX\Countries\Package\Countries;
 use App\Models\Management\Owner\Dealers\DealerCompany;
 use Config;
+use Illuminate\Support\Facades\DB;
 
 class DealerCompanyController extends Controller
 {
@@ -84,5 +85,14 @@ class DealerCompanyController extends Controller
             'alert-type' => 'success'
         );
         return Redirect()->back()->with($notification);
+    }
+
+    public function DealerCompanyProfile($uuid)
+    {
+        // request should be refactored
+        $dealerCompany = DealerCompany::with('dealer_company_users')
+            ->with('dealer_company_profile')
+            ->first();
+            return view('management.owner.dealers_info.dealer_company_info', compact('dealerCompany'));
     }
 }

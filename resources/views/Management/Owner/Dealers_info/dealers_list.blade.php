@@ -52,9 +52,9 @@
                                     @if ($company->is_banned  ==true)
                                     <span class="badge badge-danger">Banned</span>
                                      @else
-                                        <span class="badge badge-success">Not available</span>
+                                        <button class="badge badge-info">Not available</button>
                                     @endif</td>
-                                <td><button class="btn btn-outline-primary active">Information</button></td>
+                                <td><a href="{{ route('dealer.company.profile', $company->uuid) }}"class="btn btn-outline-primary active">Information</a></td>
                             </tr>
                                 @endforeach
 
@@ -74,6 +74,7 @@
 
 
     </div><!-- sl-mainpanel -->
+</div>
 
     <div id="modaldemo3" class="modal fade">
         <div class="modal-dialog modal-lg" role="document">
