@@ -27,7 +27,8 @@ class DealerUserInviteController extends Controller
     //создадим запись приглашения
     $invite = Invite::create([
         'email' => $request->get('email'),
-        'token' => $token
+        'token' => $token,
+
     ]);
 
     // Отправим инвайт
@@ -38,7 +39,7 @@ class DealerUserInviteController extends Controller
         ->back();
 }
 
-public function accept($token, $name, $surname)
+public function accept($token, $name, $surname, $dealer_company_id)
 {
 
     // Найдем приглашение
@@ -48,15 +49,21 @@ public function accept($token, $name, $surname)
     }
 
     // Создадим пользователя с данными из инвайта
-     DealerCompanyUser::create(['email'    => $invite->email,
-                   'name'     => $name,
-                    'surname' => $surname]);
+    $token = Str::random(40);
+     $userCreated=DealerCompanyUser::create([
+                   'email'              => $invite->email,
+                   'name'               => $name,
+                   'surname'            => $surname,
+                   'dealer_company_id'  => $dealer_company_id,
+                   'token'              => $token
+                ]);
 
     // удалим инвайт, чтобы им нельзя было воспользоваться снова
     $invite->delete();
 
-    // здесь необходимо будет «залогинить» пользователя, сделать редирект в личный кабинет, мы же просто выведем надпись.
 
-    return 'Отлично! Пользователь зарегистрирован!';
+    // здесь необходимо будет «залогинить» пользователя.
+
+    return view ('management.owner.dealers_info.auth.set_password', compact('userCreated'));
 }
 }

@@ -111,18 +111,29 @@ class DealerCompanyController extends Controller
         //создадим запись приглашения
         $invite = Invite::create([
             'email' => $request->get('email'),
-            'token' => $token
+            'token' => $token,
+            'dealer_company_id' => $request->get('dealer_company_id'),
+
         ]);
-        $name=$request->name;
-        $surname=$request->surname;
+        $name               =$request->name;
+        $surname            =$request->surname;
+        $dealer_company_id  =$request->dealer_company_id;
+
 
         // Отправим инвайт
-        Mail::to($request->get('email'))->send(new InviteCreated($invite, $name, $surname));
+        Mail::to($request->get('email'))->send(new InviteCreated($invite, $name, $surname, $dealer_company_id));
 
         // сделаем редирект обратно
         return redirect()
             ->back();
 
     }
+    public function saveDealerUser(request $request)
+    {
+    //    dd('h');
+        $request->validate([
+            'password' => 'required|confirmed|min:10'
+        ]);
 
+    }
 }

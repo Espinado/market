@@ -19,7 +19,7 @@ use Notifiable;
      * @var array
      */
     protected $fillable = [
-        'name', 'uuid','surname','email', 'password','invitation_token', 'registered_at',
+        'name', 'uuid','surname','email', 'password','token', 'registered_at', 'dealer_company_id',
     ];
 
     /**

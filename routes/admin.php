@@ -25,6 +25,7 @@ Route::prefix('admin')->group(function () {
     Route::get('new_dealer_company_form', 'Management\Owner\Dealers_info\DealerCompanyController@addDealerCompany')->name('add_dealer.company');
     Route::post('store-dealer-company', 'Management\Owner\Dealers_info\DealerCompanyController@storeDealerCompany')->name('store.dealer.company');
     Route::post('store-dealer-user', 'Management\Owner\Dealers_info\DealerCompanyController@storeDealerUser')->name('store.dealer.user');
+    Route::post('save-dealer-user', 'Management\Owner\Dealers_info\DealerCompanyController@saveDealerUser')->name('save.dealer.user');
     Route::get('dealer/company/profile/{uuid}', 'Management\Owner\Dealers_info\DealerCompanyController@DealerCompanyProfile')->name('dealer.company.profile');
 
     //Dealer user invitation system
@@ -33,7 +34,8 @@ Route::prefix('admin')->group(function () {
 
     Route::post('invite', 'Management\Owner\Dealers_info\DealerUserInviteController@process')->name('invite');
     // {token}  обязательный параметр, который будет передан в метод контроллера
-    Route::get('accept/{token}/{name}/{surname}', 'Management\Owner\Dealers_info\DealerUserInviteController@accept')->name('accept');
+    Route::get('accept/{token}/{name}/{surname}/{dealer_company_id}', 'Management\Owner\Dealers_info\DealerUserInviteController@accept')->name('accept');
+
     //---------------------
 
 

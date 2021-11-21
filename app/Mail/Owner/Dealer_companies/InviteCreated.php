@@ -17,11 +17,12 @@ class InviteCreated extends Mailable
      *
      * @return void
      */
-    public function __construct(Invite $invite, $name,  $surname)
+    public function __construct(Invite $invite, $name,  $surname, $dealer_company_id)
     {
         $this->invite = $invite;
         $this->name = $name;
         $this->surname = $surname;
+        $this->dealer_company_id = $dealer_company_id;
     }
 
     /**
@@ -33,9 +34,10 @@ class InviteCreated extends Mailable
     {
         return $this->from('you@example.com')
             ->view('emails.owner.dealer_companies.invite')->with([
-                'invite' => $this->invite,
-                'name'   => $this->name,
-                'surname'=> $this->surname
+                'invite'            => $this->invite,
+                'name'              => $this->name,
+                'surname'           => $this->surname,
+                'dealer_company_id' =>$this->dealer_company_id
             ]);;
     }
 }
